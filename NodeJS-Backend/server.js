@@ -18,6 +18,16 @@ Mongo.connect(MONGO_URL, function (err, db) {
     else log('good to go');
     Mongo.ops = {};
     // TODO: Add needed Functions
+    Mongo.ops.upsert = function (collection, query, json, callback) {
+        db.collection(collection).updateOne(query, {
+            $set: json
+        }, {
+            upsert: true
+        }, function (err, result) {
+            // TODO: handle err
+            if (callback) callback(err, result);
+        });
+    };
 });
 function allowCrossDomain(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -35,6 +45,23 @@ app.use(allowCrossDomain);
 function log(msg){
     console.log(msg);
 }
+//
+app.update('/cars', function (req, res, next) {
+    log('/cars req.body =', req.body);
+    var payload = req.body
+    Mongo.ops.upsert('cars', payload, function (err, response) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            //console.log(response);
+            res.status(201).send('ok');
+        }
+    });
+});
+
+
+//
 app.listen(3000, function () {
     log('listening on port 3000');
 });
