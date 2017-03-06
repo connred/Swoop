@@ -1,0 +1,12 @@
+#header {
+	width: 100%;
+	height: 100px;
+	background: #232323;
+}
+#header-tag {
+	font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
+	color: #bbbbbb;
+	text-align: center;
+	padding-top: 25px;
+}
