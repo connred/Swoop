@@ -9,6 +9,7 @@ var http = require('http'); // http protocol
 var express = require('express'); // web server
 var bodyParser = require('body-parser'); // http body parser
 var mongodb = require('mongodb');
+var socketio = require('socket.io');
 
 var Mongo = mongodb.MongoClient;
 var ObjectID = mongodb.ObjectID;
@@ -46,10 +47,39 @@ function log(msg){
     console.log(msg);
 }
 //
-app.update('/cars', function (req, res, next) {
-    log('/cars req.body =', req.body);
+app.update('/car1', function (req, res, next) {
+    log('/car1 req.body =', req.body);
     var payload = req.body
-    Mongo.ops.upsert('cars', payload, function (err, response) {
+    io.sockets.emit('addcar1', req.body);
+    Mongo.ops.upsert('car1', payload, function (err, response) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            //console.log(response);
+            res.status(201).send('ok');
+        }
+    });
+});
+app.update('/car2', function (req, res, next) {
+    log('/car2 req.body =', req.body);
+    var payload = req.body
+    io.sockets.emit('addcar2', req.body);
+    Mongo.ops.upsert('car2', payload, function (err, response) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            //console.log(response);
+            res.status(201).send('ok');
+        }
+    });
+});
+app.update('/car3', function (req, res, next) {
+    log('/car3 req.body =', req.body);
+    var payload = req.body
+    io.sockets.emit('addcar3', req.body);
+    Mongo.ops.upsert('car3', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
@@ -64,4 +94,27 @@ app.update('/cars', function (req, res, next) {
 //
 app.listen(3000, function () {
     log('listening on port 3000');
+});
+// SOCKET //
+var io = socketio.listen(server, { origins : '*:*' });
+
+io.sockets.on('connection', function(socket) {
+    log('new socket client: ', socket.id);
+    
+    socket.on('disconnect', function() {
+        log('socket client disconnected: ', socket.id);
+    });
+    
+    socket.on('addcar1', function(data) {
+        log('car lat and long: ' + data.lat + " " + data.long);
+        socket.broadcast.emit('car1', data);
+    })
+    socket.on('addcar2', function(data) {
+        log('car lat and long: ' + data.lat + " " + data.long);
+        socket.broadcast.emit('car2', data);
+    })
+    socket.on('addcar3', function(data) {
+        log('car lat and long: ' + data.lat + " " + data.long);
+        socket.broadcast.emit('car3', data);
+    })
 });
