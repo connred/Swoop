@@ -1,5 +1,6 @@
 //////////////////////////////////
-// TO DO                        //
+//           SWOOP JS           //
+//////////////////////////////////
 // Get data from backend        //
 // Get requests from frontend   //
 // Match up data                //
@@ -14,6 +15,9 @@ var socketio = require('socket.io');
 var Mongo = mongodb.MongoClient;
 var ObjectID = mongodb.ObjectID;
 const MONGO_URL = 'mongodb://localhost:27017/apcsp';
+///////////////
+// MONGO OPs //
+///////////////
 Mongo.connect(MONGO_URL, function (err, db) {
     if (err) log('error');
     else log('good to go');
@@ -30,6 +34,9 @@ Mongo.connect(MONGO_URL, function (err, db) {
         });
     };
 });
+////////////////////
+// Cross Domains  //
+////////////////////
 function allowCrossDomain(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE');
@@ -46,7 +53,9 @@ app.use(allowCrossDomain);
 function log(msg){
     console.log(msg);
 }
-//
+///////////////
+//  NodeJS   //
+///////////////
 app.update('/car1', function (req, res, next) {
     log('/car1 req.body =', req.body);
     var payload = req.body
@@ -89,13 +98,12 @@ app.update('/car3', function (req, res, next) {
         }
     });
 });
-
-//Tang made this idea
-//
 app.listen(3000, function () {
     log('listening on port 3000');
 });
-// SOCKET //
+///////////////
+// SOCKET iO //
+///////////////
 var io = socketio.listen(server, { origins : '*:*' });
 
 io.sockets.on('connection', function(socket) {
@@ -106,15 +114,15 @@ io.sockets.on('connection', function(socket) {
     });
     
     socket.on('addcar1', function(data) {
-        log('car lat and long: ' + data.lat + " " + data.long);
+        log('car lat and long: ' + data.lat + ", " + data.long);
         socket.broadcast.emit('car1', data);
     })
     socket.on('addcar2', function(data) {
-        log('car lat and long: ' + data.lat + " " + data.long);
+        log('car lat and long: ' + data.lat + ", " + data.long);
         socket.broadcast.emit('car2', data);
     })
     socket.on('addcar3', function(data) {
-        log('car lat and long: ' + data.lat + " " + data.long);
+        log('car lat and long: ' + data.lat + ", " + data.long);
         socket.broadcast.emit('car3', data);
     })
 });
