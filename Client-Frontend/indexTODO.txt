@@ -1,0 +1,4 @@
+We need a module that shows real time updates from the three cars.
+Just make something that I can fill in with the data, ill do the socket stuff. 
+Also am thinking about putting in a live map preview if we can but lets start by getting a
+basic idea for the client side and something that doesnt look terrible.
