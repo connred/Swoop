@@ -15,6 +15,7 @@ var request = require('request');
 var fs = require('fs');
 var Mongo = mongodb.MongoClient;
 var ObjectID = mongodb.ObjectID;
+var http = require('http').Server(app);
 const MONGO_URL = 'mongodb://localhost:27017/swoop';
 ///////////////
 // MONGO OPs //
