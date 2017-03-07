@@ -132,13 +132,13 @@ app.post('/car3', function (req, res, next) {
     });
 });
 app.listen(3000, function () {
-    log('listening on port 3000');
+    log('nodeJS listening on port 3000');
 });
 ///////////////
 // SOCKET iO //
 ///////////////
 var server = http.listen(8080, function () {
-    console.log('server listening on http://localhost:3000/');
+    console.log('socket io server listening on http://localhost:8080/');
 });
 var io = require('socket.io').listen(server);
 
