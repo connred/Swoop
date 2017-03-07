@@ -78,6 +78,7 @@ app.post('/car1', function (req, res, next) {
         }
         else {
             res.status(201).send('ok');
+            console.log('car1-current sent');
         }
     });
     Mongo.ops.insert('car1-all', payload, function (err, response) {
@@ -86,6 +87,7 @@ app.post('/car1', function (req, res, next) {
         }
         else {
             res.status(201).send('ok');
+            console.log('car1-all sent');
         }
     });
 });
