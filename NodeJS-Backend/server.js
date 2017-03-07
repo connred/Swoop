@@ -126,3 +126,32 @@ io.sockets.on('connection', function(socket) {
         socket.broadcast.emit('car3', data);
     })
 });
+///////////////
+//    LOG    //
+///////////////
+function log(msg, obj) {
+    console.log('\n');
+    if (obj) {
+        try {
+            console.log(msg + JSON.stringify(obj));
+        } catch (err) {
+            var simpleObject = {};
+            for (var prop in obj) {
+                if (!obj.hasOwnProperty(prop)) {
+                    continue;
+                }
+                if (typeof(obj[prop]) == 'object') {
+                    continue;
+                }
+                if (typeof(obj[prop]) == 'function') {
+                    continue;
+                }
+                simpleObject[prop] = obj[prop];
+            }
+            console.log('circular-' + msg + JSON.stringify(simpleObject)); // returns cleaned up JSON
+        }
+    } else {
+        console.log(msg);
+    }
+}
+
