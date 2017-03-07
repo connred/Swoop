@@ -136,10 +136,10 @@ app.listen(3000, function () {
 ///////////////
 // SOCKET iO //
 ///////////////
-var server = app.listen(3000, function() {
-    log('listening on port 3000');
+var server = http.listen(3000, function () {
+    console.log('server listening on http://localhost:3000/');
 });
-var io = socketio.listen(server, { origins : '*:*' });
+var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function (socket) {
     log('new socket client: ', socket.id);
