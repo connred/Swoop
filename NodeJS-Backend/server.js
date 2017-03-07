@@ -43,7 +43,7 @@ Mongo.connect(MONGO_URL, function (err, db) {
 ////////////////////
 // Cross Domains  //
 ////////////////////
-function allowCrossDomain(req, res, next) {
+/*function allowCrossDomain(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Authorization');
@@ -57,10 +57,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(allowCrossDomain);
-
-function log(msg) {
-    console.log(msg);
-}
+*/
 ///////////////
 //  NodeJS   //
 ///////////////
