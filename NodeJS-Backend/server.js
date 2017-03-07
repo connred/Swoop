@@ -67,7 +67,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-app.update('/car1', function (req, res, next) {
+app.post('/car1', function (req, res, next) {
     log('/car1 req.body =', req.body);
     var payload = req.body
     io.sockets.emit('addcar1', req.body);
@@ -88,7 +88,7 @@ app.update('/car1', function (req, res, next) {
         }
     });
 });
-app.update('/car2', function (req, res, next) {
+app.post('/car2', function (req, res, next) {
     log('/car2 req.body =', req.body);
     var payload = req.body
     io.sockets.emit('addcar2', req.body);
@@ -109,7 +109,7 @@ app.update('/car2', function (req, res, next) {
         }
     });
 });
-app.update('/car3', function (req, res, next) {
+app.post('/car3', function (req, res, next) {
     log('/car3 req.body =', req.body);
     var payload = req.body
     io.sockets.emit('addcar3', req.body);
