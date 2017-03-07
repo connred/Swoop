@@ -139,9 +139,8 @@ app.listen(3000, function () {
 var server = app.listen(3000, function() {
     log('listening on port 3000');
 });
-/*var io = socketio.listen(server, {
-    origins: '*:*'
-});*/
+var io = socketio.listen(server, { origins : '*:*' });
+
 io.sockets.on('connection', function (socket) {
     log('new socket client: ', socket.id);
     socket.on('disconnect', function () {
