@@ -137,7 +137,7 @@ app.listen(3000, function () {
 ///////////////
 // SOCKET iO //
 ///////////////
-var server = http.listen(3000, function () {
+var server = http.listen(8080, function () {
     console.log('server listening on http://localhost:3000/');
 });
 var io = require('socket.io').listen(server);
