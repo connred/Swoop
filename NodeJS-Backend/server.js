@@ -61,6 +61,12 @@ app.use(allowCrossDomain);
 ///////////////
 //  NodeJS   //
 ///////////////
+var app = express();
+// use middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.update('/car1', function (req, res, next) {
     log('/car1 req.body =', req.body);
     var payload = req.body
