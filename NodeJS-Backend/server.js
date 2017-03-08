@@ -81,7 +81,7 @@ app.post('/car1', function (req, res, next) {
             console.log('car1-current sent');
         }
     });
-    Mongo.ops.insert('car1-all', payload, function (err, response) {
+    Mongo.ops.insert('car1ßall', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
