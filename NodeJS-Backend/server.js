@@ -72,7 +72,7 @@ app.post('/car1', function (req, res, next) {
     log('/car1 req.body =' + JSON.stringify(req.body));
     var payload = req.body;
     io.sockets.emit('addcar1', payload);
-    Mongo.ops.upsert('car1-current', payload, function (err, response) {
+    Mongo.ops.upsert('car1current', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
@@ -87,7 +87,7 @@ app.post('/car1', function (req, res, next) {
         }
         else {
             res.status(201).send('ok');
-            console.log('car1-all sent');
+            console.log('car1all sent');
         }
     });
 });
