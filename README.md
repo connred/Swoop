@@ -1,4 +1,6 @@
-# Swoop
+# Swoop [![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/4ked/Server-Tests)
+[![MyGet](https://img.shields.io/myget/mongodb/v/MongoDB.Driver.Core.svg)](https://github.com/4ked/Server-Tests)
+
 Built by Thomas Angles, Max Goeke, and Connor Redmond
 
 Internet Of Things Challenge
