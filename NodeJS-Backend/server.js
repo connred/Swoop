@@ -22,7 +22,7 @@ const MONGO_URL = 'mongodb://localhost:27017/swoop';
 ///////////////
 Mongo.connect(MONGO_URL, function (err, db) {
     if (err) log('error');
-    else log('good to go');
+    else log('Mongo is active on port 27017');
     Mongo.ops = {};
     // TODO: Add needed Functions
     Mongo.ops.upsert = function(collection, query, json, callback) {
@@ -73,7 +73,7 @@ app.post('/car1', function (req, res, next) {
         }
         else {
             res.status(201).send('ok');
-            console.log('car1-current sent');
+            console.log('/car1-current sent');
         }
     });
     Mongo.ops.insert('car1all', payload, function (err, response) {
@@ -82,7 +82,7 @@ app.post('/car1', function (req, res, next) {
         }
         else {
             res.status(201).send('ok');
-            console.log('car1all sent');
+            console.log('/car1all sent');
         }
     });
 });
