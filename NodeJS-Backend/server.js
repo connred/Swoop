@@ -25,13 +25,8 @@ Mongo.connect(MONGO_URL, function (err, db) {
     else log('good to go');
     Mongo.ops = {};
     // TODO: Add needed Functions
-    Mongo.ops.upsert = function (collection, query, json, callback) {
-        db.collection(collection).updateOne(query, {
-            $set: json
-        }, {
-            upsert: true
-        }, function (err, result) {
-            // TODO: handle err
+    Mongo.ops.upsert = function(collection, query, json, callback) {
+        db.collection(collection).updateOne(query, { $set: json }, { upsert: true }, function(err, result) {
             if (callback) callback(err, result);
         });
     };
@@ -81,7 +76,7 @@ app.post('/car1', function (req, res, next) {
             console.log('car1-current sent');
         }
     });
-    Mongo.ops.insert('car1ßall', payload, function (err, response) {
+    Mongo.ops.insert('car1all', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
@@ -95,7 +90,7 @@ app.post('/car2', function (req, res, next) {
     log('/car2 req.body =' + JSON.stringify(req.body));
     var payload = req.body;
     io.sockets.emit('addcar2', payload);
-    Mongo.ops.upsert('car2-current', payload, function (err, response) {
+    Mongo.ops.upsert('car2current', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
@@ -104,7 +99,7 @@ app.post('/car2', function (req, res, next) {
             console.log('car2-current sent');
         }
     });
-    Mongo.ops.insert('car2-all', payload, function (err, response) {
+    Mongo.ops.insert('car2all', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
@@ -118,7 +113,7 @@ app.post('/car3', function (req, res, next) {
     log('/car3 req.body =' + JSON.stringify(req.body));
     var payload = req.body;
     io.sockets.emit('addcar3', payload);
-    Mongo.ops.upsert('car3-current', payload, function (err, response) {
+    Mongo.ops.upsert('car3current', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
@@ -127,7 +122,7 @@ app.post('/car3', function (req, res, next) {
             console.log('car3-current sent');
         }
     });
-    Mongo.ops.insert('car3-all', payload, function (err, response) {
+    Mongo.ops.insert('car3all', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
