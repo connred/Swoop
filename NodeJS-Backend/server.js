@@ -69,9 +69,9 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.post('/car1', function (req, res, next) {
-    log('/car1 req.body =', req.body);
-    var payload = req.body
-    io.sockets.emit('addcar1', req.body);
+    log('/car1 req.body =' + JSON.stringify(req.body));
+    var payload = JSON.stringify(req.body);
+    io.sockets.emit('addcar1', payload);
     Mongo.ops.upsert('car1-current', payload, function (err, response) {
         if (err) {
             console.log(err);
@@ -92,15 +92,16 @@ app.post('/car1', function (req, res, next) {
     });
 });
 app.post('/car2', function (req, res, next) {
-    log('/car2 req.body =', req.body);
-    var payload = req.body
-    io.sockets.emit('addcar2', req.body);
+    log('/car2 req.body =' + JSON.stringify(req.body));
+    var payload = JSON.stringify(req.body);
+    io.sockets.emit('addcar2', payload);
     Mongo.ops.upsert('car2-current', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
         else {
             res.status(201).send('ok');
+            console.log('car2-current sent');
         }
     });
     Mongo.ops.insert('car2-all', payload, function (err, response) {
@@ -109,19 +110,21 @@ app.post('/car2', function (req, res, next) {
         }
         else {
             res.status(201).send('ok');
+            console.log('car2-all sent');
         }
     });
 });
 app.post('/car3', function (req, res, next) {
-    log('/car3 req.body =', req.body);
-    var payload = req.body
-    io.sockets.emit('addcar3', req.body);
+    log('/car3 req.body =' + JSON.stringify(req.body));
+    var payload = JSON.stringify(req.body);
+    io.sockets.emit('addcar3', payload);
     Mongo.ops.upsert('car3-current', payload, function (err, response) {
         if (err) {
             console.log(err);
         }
         else {
             res.status(201).send('ok');
+            console.log('car3-current sent');
         }
     });
     Mongo.ops.insert('car3-all', payload, function (err, response) {
@@ -130,6 +133,7 @@ app.post('/car3', function (req, res, next) {
         }
         else {
             res.status(201).send('ok');
+            console.log('car3-all sent');
         }
     });
 });
@@ -143,7 +147,6 @@ var server = http.listen(8080, function () {
     console.log('socket io server listening on http://localhost:8080/');
 });
 var io = require('socket.io').listen(server);
-
 io.sockets.on('connection', function (socket) {
     log('new socket client: ', socket.id);
     socket.on('disconnect', function () {
