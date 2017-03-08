@@ -70,7 +70,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.post('/car1', function (req, res, next) {
     log('/car1 req.body =' + JSON.stringify(req.body));
-    var payload = JSON.stringify(req.body);
+    var payload = req.body;
     io.sockets.emit('addcar1', payload);
     Mongo.ops.upsert('car1-current', payload, function (err, response) {
         if (err) {
@@ -93,7 +93,7 @@ app.post('/car1', function (req, res, next) {
 });
 app.post('/car2', function (req, res, next) {
     log('/car2 req.body =' + JSON.stringify(req.body));
-    var payload = JSON.stringify(req.body);
+    var payload = req.body;
     io.sockets.emit('addcar2', payload);
     Mongo.ops.upsert('car2-current', payload, function (err, response) {
         if (err) {
@@ -116,7 +116,7 @@ app.post('/car2', function (req, res, next) {
 });
 app.post('/car3', function (req, res, next) {
     log('/car3 req.body =' + JSON.stringify(req.body));
-    var payload = JSON.stringify(req.body);
+    var payload = req.body;
     io.sockets.emit('addcar3', payload);
     Mongo.ops.upsert('car3-current', payload, function (err, response) {
         if (err) {
