@@ -55,6 +55,31 @@ app.use(bodyParser.urlencoded({
 app.use(allowCrossDomain);
 */
 ///////////////
+// SOCKET iO //
+///////////////
+var server = http.listen(8080, function () {
+    console.log('socket io server listening on http://localhost:8080/');
+});
+var io = require('socket.io').listen(server);
+io.sockets.on('connection', function (socket) {
+    log('new socket client: ', socket.id);
+    socket.on('disconnect', function () {
+        log('socket client disconnected: ', socket.id);
+    });
+    socket.on('addcar1', function (data) {
+        log('car lat and long: ' + data.lat + ", " + data.long);
+        socket.broadcast.emit('car1', data);
+    })
+    socket.on('addcar2', function (data) {
+        log('car lat and long: ' + data.lat + ", " + data.long);
+        socket.broadcast.emit('car2', data);
+    })
+    socket.on('addcar3', function (data) {
+        log('car lat and long: ' + data.lat + ", " + data.long);
+        socket.broadcast.emit('car3', data);
+    })
+});
+///////////////
 //  NodeJS   //
 ///////////////
 var app = express();
@@ -67,7 +92,7 @@ app.post('/car1', function (req, res, next) {
     log('/car1 req.body =' + JSON.stringify(req.body));
     var payload = req.body;
     io.sockets.emit('addcar1', payload);
-    Mongo.ops.upsert('car1current', payload, function (err, response) {
+    Mongo.ops.upsert('car1current', payload, function (err, response) { // NEED TO FIX THIS, NOT POSTING PROPERLY
         if (err) {
             console.log(err);
         }
@@ -135,31 +160,7 @@ app.post('/car3', function (req, res, next) {
 app.listen(3000, function () {
     log('nodeJS listening on port 3000');
 });
-///////////////
-// SOCKET iO //
-///////////////
-var server = http.listen(8080, function () {
-    console.log('socket io server listening on http://localhost:8080/');
-});
-var io = require('socket.io').listen(server);
-io.sockets.on('connection', function (socket) {
-    log('new socket client: ', socket.id);
-    socket.on('disconnect', function () {
-        log('socket client disconnected: ', socket.id);
-    });
-    socket.on('addcar1', function (data) {
-        log('car lat and long: ' + data.lat + ", " + data.long);
-        socket.broadcast.emit('car1', data);
-    })
-    socket.on('addcar2', function (data) {
-        log('car lat and long: ' + data.lat + ", " + data.long);
-        socket.broadcast.emit('car2', data);
-    })
-    socket.on('addcar3', function (data) {
-        log('car lat and long: ' + data.lat + ", " + data.long);
-        socket.broadcast.emit('car3', data);
-    })
-});
+
 ///////////////
 //    LOG    //
 ///////////////
