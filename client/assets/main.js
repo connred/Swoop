@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var socketServer = 'http://10.10.0.0:8080/'
+    var socketServer = 'http://192.168.1.69:8080/'
     var socket = io.connect(socketServer);
     socket.on('addcar1', function (data) {
         console.log(data);
