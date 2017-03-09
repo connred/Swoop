@@ -14,9 +14,9 @@ $(document).ready(function () {
     });
 
 });
-////////////
-// GeoLoc //
-////////////
+/***************************
+*****		 GeoLoc 
+***************************/
 var x = document.getElementById("userIssues");
 function getLocation() {
     if (navigator.geolocation) {
