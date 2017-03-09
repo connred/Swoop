@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var socket = io.connect();
     socket.on('addcar1', function (data) {
-        //$
+        console.log(data);
     });
     socket.on('addcar2', function (data) {
         //$
