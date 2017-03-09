@@ -1,7 +1,9 @@
 $(document).ready(function () {
-    var socket = io.connect();
+    var socketServer = 'http://10.10.0.0:8080/'
+    var socket = io.connect(socketServer);
     socket.on('addcar1', function (data) {
-        //$
+        console.log(data);
+        $('#car1').append('<p>' + data + '<p>');
     });
     socket.on('addcar2', function (data) {
         //$
@@ -10,20 +12,10 @@ $(document).ready(function () {
         //$
     });
 
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition, showError);
-            var latlon = position.coords.latitude + "," + position.coords.longitude;
-            alert(latlon);
-            console.log(latlon);
-            //return latlon;
-        }
-        else {
-            alert("Geolocation is not supported by this browser.");
-        }
-    }
 });
-
+////////////
+// GeoLoc //
+////////////
 var x = document.getElementById("userIssues");
 function getLocation() {
     if (navigator.geolocation) {
