@@ -1,6 +1,9 @@
 # Swoop 
 [![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/connred/Swoop)
+[![node.js](https://img.shields.io/badge/node.js-v6.0.0-#43853d.svg)](https://github.com/connred/Swoop)
 [![MyGet](https://img.shields.io/myget/mongodb/v/MongoDB.Driver.Core.svg)](https://github.com/connred/Swoop)
+[![socket.io](https://img.shields.io/badge/socket.io-v1.4.5-green.svg)](https://github.com/connred/Swoop)
+
 
 Built by Thomas Angles, Max Goeke, and Connor Redmond
 
