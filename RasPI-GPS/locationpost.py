@@ -64,7 +64,7 @@ while True:
         s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n"   
         #f.write(s)   #Save to file
         
-        payload = ( 'Time', t,'Alt', alt,'Lat:', lat,'Long:',long)
+        payload = ('Time': t,'Alt': alt,'Lat': lat,'Long': long)
         requests.update(url, data=payload) # send to server
         
         time.sleep(5)

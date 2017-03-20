@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    var socketServer = 'http://192.168.1.69:8080/' // IP FOR VM, MUST HAVE PORT 8080
+    var socketServer = 'http://10.10.102.97:8080/' // IP FOR VM, MUST HAVE PORT 8080
     var socket = io.connect(socketServer);
     socket.on('addcar1', function (data) {
         console.log(data);
-        $('#car1').append('<p>' + data.test + ':' + data.test2 + '<p>'); // change for real data
+        $('#car1').append('<p>' + 'Time:' + data.t + 'Alt:' + data.alt + 'Lat:' + data.lat + 'long:' + data.long + '<p>'); // change for real data
         //showCarLocation(data);
     });
     socket.on('addcar2', function (data) {
