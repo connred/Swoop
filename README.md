@@ -13,4 +13,6 @@ Our project is a tool designed to minimize time spent searching for your next fo
 - Socket.io
 - Request
 
-# Built by Connor Redmond, Max Goeke, and Thomas Angles
+
+
+**Built by Connor Redmond, Max Goeke, and Thomas Angles**
