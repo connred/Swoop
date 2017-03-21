@@ -88,6 +88,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use('/', express.static('../client/'));
 app.post('/car1', function (req, res, next) {
     log('/car1 req.body =' + JSON.stringify(req.body));
     var payload = req.body;
