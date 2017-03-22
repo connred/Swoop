@@ -12,7 +12,11 @@ $(document).ready(function () {
     socket.on('addcar3', function (data) {
         //$
     });
-
+	socket.on('echo', function(data) {
+		console.log('socket eacho = ' + JSON.stringify(data));
+		$('#dht-display').text(data.temp + "C, " + data.humi + "%");
+		$('#range-display').text(data.range);
+	});
 });
 /***************************
 *****		 GeoLoc 
