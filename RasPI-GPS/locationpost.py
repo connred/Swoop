@@ -4,14 +4,12 @@
 # CAR 1
 
 # NEED TO IMPLEMENT THE POST FUNCITON TO SEND THE DATA WE ARE GETTING TO THE SERVER
-import serial 
-import time
+import serial, time
 import smbus
 import math
 import RPi.GPIO as GPIO
 import struct
 import sys
-import grovepi
 import requests
 
 url = "http://10.10.102.160:3000/car1" #ip for VM
@@ -64,7 +62,7 @@ while True:
         s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n"   
         #f.write(s)   #Save to file
         
-        payload = ('Time': t,'Alt': alt,'Lat': lat,'Long': long)
+        payload = {'Time': t,'Alt': alt,'Lat': lat,'Long': long}
         requests.update(url, data=payload) # send to server
         
         time.sleep(5)
