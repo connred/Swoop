@@ -57,10 +57,8 @@ app.use(allowCrossDomain);
 ///////////////
 // SOCKET iO //
 ///////////////
-var server = http.listen(8080, function () {
-    console.log('socket io server listening on http://localhost:8080/');
-});
-var io = require('socket.io').listen(server);
+var server = http.createServer(app);
+var io = socketio(server);
 io.sockets.on('connection', function (socket) {
     log('new socket client: ', socket.id);
     socket.on('disconnect', function () {
@@ -158,8 +156,8 @@ app.post('/car3', function (req, res, next) {
         }
     });
 });
-app.listen(3000, function () {
-    log('nodeJS listening on port 3000');
+server.listen(3000, function () {
+    log(' listening on port 3000');
 });
 
 ///////////////
