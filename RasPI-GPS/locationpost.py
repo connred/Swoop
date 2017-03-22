@@ -12,7 +12,7 @@ import struct
 import sys
 import requests
 
-url = "http://10.10.102.160:3000/car1" #ip for VM
+url = "http://10.10.102.156:3000/car1" #ip for VM
  
 ser = serial.Serial('/dev/ttyAMA0',  9600, timeout = 0)   #Open the serial port at 9600 baud
 ser.flush()
@@ -60,8 +60,12 @@ while True:
         [t,fix,sats,alt,lat,lat_ns,long,long_ew]=g.vals() #Get the individial values
         print "Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew
         s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n"   
+<<<<<<< HEAD
         #f.write(s)   #Save to file
         
+=======
+        f.write(s)   #Save to file
+>>>>>>> 7972b8c6b1352ae52d81e274db2e516acbacfc7f
         payload = {'Time': t,'Alt': alt,'Lat': lat,'Long': long}
         requests.update(url, data=payload) # send to server
         
