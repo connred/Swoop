@@ -57,7 +57,9 @@ app.use(allowCrossDomain);
 ///////////////
 // SOCKET iO //
 ///////////////
-var server = http.createServer(app);
+var server = http.listen(8080, function () {
+    console.log('socket on');
+});
 var io = socketio(server);
 io.sockets.on('connection', function (socket) {
     log('new socket client: ', socket.id);
@@ -156,7 +158,7 @@ app.post('/car3', function (req, res, next) {
         }
     });
 });
-server.listen(3000, function () {
+app.listen(3000, function () {
     log(' listening on port 3000');
 });
 
