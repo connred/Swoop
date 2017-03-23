@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var socketServer = 'http://10.10.103.156:8080/' // IP FOR VM, MUST HAVE PORT 8080
+    var socketServer = 'http://10.10.102.197:3000/' // IP FOR VM, MUST HAVE PORT 8080
     var socket = io.connect(socketServer);
     socket.on('addcar1', function (data) {
         console.log(data);
