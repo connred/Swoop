@@ -1,33 +1,64 @@
+/******** Standards *********/
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+body {
+	background: #232323;
+}
+/***************************
+*****		HEADER
+***************************/
 #header {
 	width: 100%;
 	height: 100px;
 	background: #232323;
 }
 #header-tag {
-	font-family: 'Open Sans', sans-serif;
-    font-size: 36px;
-	color: #bbbbbb;
-	text-align: center;
+	font-size: 34px;
+    color: white;
+    font-family: 'Open sans', 'sans-serif';
+    text-align: center;
+	height: 100px;
+	border: 5px solid #D4AF37;
+	background: #cf0404;
 	padding-top: 25px;
+	margin-bottom: 50px;
 }
+/***************************
+*****		GEO
+***************************/
 #findLocation {
 	width: 100%;
 	height: 100px;
-	background: #87cefa;
+	background: #232323;
 	text-align: center;
 }
 #locationButton {
 	margin-top: 40px;
 	padding: 5px;
+	border: 1px solid #cf0404;
 	border-radius: 6px;
-	background: white;
+	background: #d4af37;
+	color: white;
 }
 #locationButton:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	background: white;
+	color: #cf0404;
 }
 #mapSect {
 	width: 100%;
-	height: 700px;
+	height: 480px;
+	background: #232323;
+	margin: none;
 }
 #userMap {
 	width: 500px;
@@ -35,11 +66,25 @@
 	margin-left: 25%;
 }
 #userIssues {
-	width: 100%;
+	width: 500px;
+	margin-left: 25%;
 	height: 50px;
-	background: #87CEFA;
+	background: #232323;
+	border: 1px solid #cf0404;
+	color: white;
 }
-.navbar-brand {
-	padding: none;
-	margin: none;
+/***************************
+*****		FOOTER
+***************************/
+#footer-main {
+	margin: auto;
+	width: 100%;
+	height: 300px;
+	background: #1c1c1c;
+}
+#bootstrap-credit {
+	color: white;
+	padding: 50px;
+	font-family: 'Open sans', 'sans-serif';
+	font-size: 20px;
 }

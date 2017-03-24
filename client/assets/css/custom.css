@@ -1,3 +1,7 @@
+a, div, img {
+	margin: none;
+	padding: none;
+}
 .navbar-brand {
 	margin: none;
 	padding: none;
