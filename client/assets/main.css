@@ -39,3 +39,7 @@
 	height: 50px;
 	background: #87CEFA;
 }
+.navbar-brand {
+	padding: none;
+	margin: none;
+}
