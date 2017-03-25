@@ -23,12 +23,12 @@ body {
 }
 #header-tag {
 	font-size: 34px;
-    color: white;
+    color: #232323;
     font-family: 'Open sans', 'sans-serif';
     text-align: center;
 	height: 100px;
-	border: 5px solid #D4AF37;
-	background: #cf0404;
+	border: 5px solid #990000;
+	background: #455372;
 	padding-top: 25px;
 	margin-bottom: 50px;
 }
@@ -44,15 +44,15 @@ body {
 #locationButton {
 	margin-top: 40px;
 	padding: 5px;
-	border: 1px solid #cf0404;
+	border: 1px solid #990000;
 	border-radius: 6px;
-	background: #d4af37;
+	background: #455372;
 	color: white;
 }
 #locationButton:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 	background: white;
-	color: #cf0404;
+	color: #455372;
 }
 #mapSect {
 	width: 100%;
