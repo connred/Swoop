@@ -12,7 +12,7 @@ import struct
 import sys
 import requests
 
-url = "http://10.10.102.165:3000/car1" #ip for VM
+url = "http://10.10.102.197:3000/car1" #ip for VM
  
 ser = serial.Serial('/dev/ttyAMA0',  9600, timeout = 0)   #Open the serial port at 9600 baud
 ser.flush()

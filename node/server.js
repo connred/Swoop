@@ -39,7 +39,7 @@ Mongo.connect(MONGO_URL, function (err, db) {
 ////////////////////
 // Cross Domains  //
 ////////////////////
-/*function allowCrossDomain(req, res, next) {
+function allowCrossDomain(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Authorization');
@@ -53,7 +53,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(allowCrossDomain);
-*/
+
 ///////////////
 // SOCKET iO //
 ///////////////
@@ -88,7 +88,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-app.use('/', express.static('../client/'));
+//app.use('/', express.static('../client/'));
 app.post('/car1', function (req, res, next) {
     log('/car1 req.body =' + JSON.stringify(req.body));
     var payload = req.body;
