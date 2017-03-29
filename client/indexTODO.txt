@@ -2,3 +2,11 @@
 -Decide navigation, subdivisons
 -Logo / Colorscheme
 -Decide functionality and user decisions for transportation (turning on / off)
+
+IDEAS:
+In order to place cars on the google map, we can create waypoints
+via google services from server data that are constantly updated to 
+show the location of cars and whatnot on the google map.
+
+Filter sections go under error space in #232323 background and build error
+sect into that div

@@ -35,7 +35,7 @@ function showPosition(position) {
     latlon = new google.maps.LatLng(lat, lon)
     mapholder = document.getElementById('userMap')
     mapholder.style.height = '400px';
-    mapholder.style.width = '500px';
+    mapholder.style.width = '700px';
 
     var myOptions = {
     center:latlon,zoom:14,
