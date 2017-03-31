@@ -17,3 +17,6 @@ html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, the
 .panel-body {
 	color: black;
 }
+#main {
+	background: black;
+}
