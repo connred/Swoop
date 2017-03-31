@@ -10,3 +10,25 @@ show the location of cars and whatnot on the google map.
 
 Filter sections go under error space in #232323 background and build error
 sect into that div
+
+GEOLOCATION FEATURES:
+
+ - specify services/ limit
+ 	- uber / lyft / taxi / etc.
+ - ? change theme / scheme of map ?
+ - choose radius of where user is searching
+ 	- button which leads to sizeable circle over map
+	
+MENU OPTIONS:
+
+ - 'data utilization' I guess
+ 	- not yet sure on presentation
+	- compare costs / time / distance of different services
+	- should be option to get ride through our app
+		- available through service API's, already checked uber
+ - Settings
+ 	- saved preferences?
+	- support
+ - Help
+ 	- documentation
+	- tutorials
