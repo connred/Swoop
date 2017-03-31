@@ -15,7 +15,6 @@ var request = require('request');
 var fs = require('fs');
 var Mongo = mongodb.MongoClient;
 var ObjectID = mongodb.ObjectID;
-var http = require('http').Server(app);
 const MONGO_URL = 'mongodb://localhost:27017/swoop';
 ///////////////
 // MONGO OPs //
@@ -56,9 +55,7 @@ app.use(allowCrossDomain);
 ///////////////
 // SOCKET iO //
 ///////////////
-var server = http.listen(8080, function () {
-    console.log('socket on');
-});
+var server = http.createServer(app);
 var io = socketio(server);
 io.sockets.on('connection', function (socket) {
     log('new socket client: ', socket.id);
@@ -151,8 +148,8 @@ app.post('/car3', function (req, res, next) {
         }
     });
 });
-app.listen(3000, function () {
-    log(' listening on port 3000');
+server.listen(3000, function () {
+    log('listening on port 3000');
 });
 
 ///////////////
