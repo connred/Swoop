@@ -10,6 +10,13 @@ html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, the
     margin: none;
     border: 0;
 }
+.container-fluid {
+	background: black;
+	color: white;
+}
+.container{
+	background: black;
+}
 .navbar-brand {
 	margin: none;
 	padding: none;
@@ -19,4 +26,13 @@ html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, the
 }
 #main {
 	background: black;
+}
+.navbar-header {
+	margin: none;
+	padding: none;
+}
+.navbar-brand {
+	width: 90px;
+	padding: none;
+	margin: none;
 }
